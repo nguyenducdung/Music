@@ -1,4 +1,4 @@
-package rikkeisoft.nguyenducdung.com.music;
+package rikkeisoft.nguyenducdung.com.music.activity;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -14,7 +14,12 @@ import android.widget.TextView;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import rikkeisoft.nguyenducdung.com.music.R;
+import rikkeisoft.nguyenducdung.com.music.model.SongInfo;
+
 public class PlayActivity extends AppCompatActivity {
+    public static boolean aBoolean;
+    public static MediaPlayer player;
     private TextView tvTitle;
     private TextView tvTimeSong;
     private SeekBar sbSong;
@@ -40,18 +45,11 @@ public class PlayActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 playMusic();
-                startService(new Intent(PlayActivity.this, MyService.class));
-                NotificationGenerator.customBigNotification(getApplicationContext());
-                NotificationGenerator.openActivityNotification(getApplicationContext());
             }
         });
         ibtnPause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                stopService(new Intent(PlayActivity.this, MyService.class));
-                ibtnPause.setVisibility(View.GONE);
-                ibtnPlay.setVisibility(View.VISIBLE);
-                mediaPlayer.pause();
             }
         });
     }
@@ -62,6 +60,7 @@ public class PlayActivity extends AppCompatActivity {
         songArtist = intent.getStringExtra("artist");
         songUrl = intent.getStringExtra("url");
         tvTitle.setText(songName);
+        startService(intent);
     }
 
     private void initView() {

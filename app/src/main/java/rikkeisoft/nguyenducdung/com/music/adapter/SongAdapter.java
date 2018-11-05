@@ -1,4 +1,4 @@
-package rikkeisoft.nguyenducdung.com.music;
+package rikkeisoft.nguyenducdung.com.music.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -9,6 +9,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import rikkeisoft.nguyenducdung.com.music.R;
+import rikkeisoft.nguyenducdung.com.music.model.SongInfo;
 
 public class SongAdapter extends RecyclerView.Adapter<SongAdapter.ViewHolder> {
     private ArrayList<SongInfo> songs = new ArrayList<>();

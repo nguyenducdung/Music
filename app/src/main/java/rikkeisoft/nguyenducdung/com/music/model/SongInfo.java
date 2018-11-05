@@ -1,4 +1,4 @@
-package rikkeisoft.nguyenducdung.com.music;
+package rikkeisoft.nguyenducdung.com.music.model;
 
 public class SongInfo {
     private String Songname;

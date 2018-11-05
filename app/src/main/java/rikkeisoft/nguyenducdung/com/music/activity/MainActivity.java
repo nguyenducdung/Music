@@ -1,4 +1,4 @@
-package rikkeisoft.nguyenducdung.com.music;
+package rikkeisoft.nguyenducdung.com.music.activity;
 
 import android.Manifest;
 import android.content.Intent;
@@ -18,11 +18,16 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import rikkeisoft.nguyenducdung.com.music.R;
+import rikkeisoft.nguyenducdung.com.music.adapter.SongAdapter;
+import rikkeisoft.nguyenducdung.com.music.model.SongInfo;
+
 public class MainActivity extends AppCompatActivity {
     private ArrayList<SongInfo> songs = new ArrayList<>();
     private RecyclerView rcMusicList;
     private SongAdapter songAdapter;
 
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
